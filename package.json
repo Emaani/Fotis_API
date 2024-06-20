@@ -1,7 +1,7 @@
 {
   "name": "fotis_api",
   "version": "1.0.0",
-  "description": "API for tracking Agro commodities",
+  "description": "API for displaying trending and current Agro commodity prices",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
