@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use('/commodities', commodityRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5432;
 
 sequelize.sync()
   .then(() => {
