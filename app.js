@@ -1,19 +1,36 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const sequelize = require('./config/database');
-const commodityRoutes = require('./routes/commodities');
-const databaseconfig = require('./config/database.js');
-const databaseconfigPath = path.join(__dirname, 'config', 'database.js');
-const app = express();
+const { Pool } = require('pg');
 
+const app = express();
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'postgres',
+  password: 'rootuser',
+  port: 5432,
+});
+
+
+
+// Middleware
 app.use(bodyParser.json());
+
+// Routes
+const commodityRoutes = require('./routes/commodities');
 app.use('/commodities', commodityRoutes);
 
-const PORT = process.env.PORT || 5432;
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
-sequelize.sync()
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch(err => console.log('Error: ' + err));
+// Handle PostgreSQL pool errors
+pool.on('error', (err, client) => {
+  console.error('Unexpected error on idle client', err);
+  process.exit(-1);
+});
+
+module.exports = pool;
