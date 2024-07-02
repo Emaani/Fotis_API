@@ -1,12 +1,14 @@
 const { Client } = require('pg'); // Correct the import
 
 const client = new Client({
-  host: 'localhost',
+  host: '192.168.100.137',
   user: 'postgres', // Use correct user, assuming 'postgres' is right for PostgreSQL
   port: 5432,
-  password: 'rootuser',
-  database: 'postgres'
+  password: '123',
+  database: 'fotisdb'
 });
+
+
 
 client.connect();
 

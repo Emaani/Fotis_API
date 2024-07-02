@@ -1,8 +1,9 @@
 const { Pool } = require('pg');
 const pool = new Pool({
-  user: 'fotis_api',
+
+  user: 'postgres',
   host: '192.168.100.137',
-  database: 'fotis_db',
+  database: 'fotisdb',
   password: '123',
   port: 5432,
 });
