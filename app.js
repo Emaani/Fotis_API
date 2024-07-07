@@ -5,7 +5,7 @@ const { Pool } = require('pg');
 
 const app = express();
 const pool = new Pool({
-  user: 'fotis_api',
+  user: 'postgres',
   host: '192.168.100.137',
   database: 'fotisdb',
   password: '123',
@@ -17,7 +17,7 @@ const pool = new Pool({
 // Middleware
 app.use(bodyParser.json());
 
-// Routes
+// Routesm
 const commodityRoutes = require('./routes/commodities');
 app.use('/commodities', commodityRoutes);
 
