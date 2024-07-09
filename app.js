@@ -17,7 +17,7 @@ const pool = new Pool({
 // Middleware
 app.use(bodyParser.json());
 
-// Routesm
+// Routes
 const commodityRoutes = require('./routes/commodities');
 app.use('/commodities', commodityRoutes);
 
