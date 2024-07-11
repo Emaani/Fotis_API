@@ -4,7 +4,7 @@ const client = new Client({
   host: '192.168.100.137',
   user: 'postgres', // Use correct user, assuming 'postgres' is right for PostgreSQL
   port: 5432,
-  password: '123',
+  password: '',
   database: 'fotisdb'
 });
 
